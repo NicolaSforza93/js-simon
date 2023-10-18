@@ -2,7 +2,7 @@
 
 
 const randomNumber = getRandomNumInt(1, 100, 5);
-console.log(randomNumber);
+// console.log(randomNumber);
 alert(randomNumber);
 
 
@@ -19,18 +19,18 @@ setTimeout(function() {
             arrayUserNumber.push(userNumber);
         }
     } 
-    console.log(arrayUserNumber);
+    // console.log(arrayUserNumber);
 
     for (let i = 0; i < arrayUserNumber.length; i++) {
         const currentNumber = arrayUserNumber[i];
-        console.log(randomNumber, currentNumber);
+        // console.log(randomNumber, currentNumber);
         if (randomNumber.includes(currentNumber) && !guessedNumbers.includes(currentNumber)
         ) {
             guessedNumbers.push(currentNumber)
         }
     }
     alert('Hai indovinato ' + guessedNumbers.length + ' numeri ' + guessedNumbers.join(', '));
-}, 30000);
+}, 10000);
 
 
 
