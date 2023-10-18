@@ -30,7 +30,7 @@ setTimeout(function() {
         }
     }
     alert('Hai indovinato ' + guessedNumbers.length + ' numeri ' + guessedNumbers.join(', '));
-}, 3000);
+}, 30000);
 
 
 
