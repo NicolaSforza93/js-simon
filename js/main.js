@@ -1,18 +1,32 @@
-console.log('Simon Says');
+// console.log('Simon Says');
 
 
-const randomNumber = getArrayOfRandomIntBetween(1, 100, 5);
+const randomNumber = getRandomNumInt(1, 100, 5);
 console.log(randomNumber);
 alert(randomNumber);
 
 const arrayUserNumber = [];
-console.log(arrayUserNumber);
+
+let score = 0;
 
 const idTimeout = setTimeout(function() {
-    while (arrayUserNumber.length < 5) {
+    for (let i = 0; i < 5; i++) {
         const userNumber = parseInt(prompt('inserisci un numero'));
-        arrayUserNumber.push(userNumber);
+        if (!arrayUserNumber.includes(userNumber)) {
+            // - pushare il numero nell'array
+            arrayUserNumber.push(userNumber);
+        }
     } 
+    console.log(arrayUserNumber);
+
+    for (let i = 0; i < arrayUserNumber.length; i++) {
+        const currentNumber = arrayUserNumber[i];
+        console.log(randomNumber, currentNumber);
+        if (randomNumber.includes(currentNumber)) {
+            score++;
+        }
+    }
+    alert('Hai indovinato ' + score + ' numeri');
 }, 3000);
 
 
@@ -32,16 +46,18 @@ const idTimeout = setTimeout(function() {
 
 
 // - dichiaro una funzione che generi 5 numeri casuali 
-function getArrayOfRandomIntBetween (minRange, maxRange, number) {
+function getRandomNumInt (min, max, number) {
 // - inizializzo una varibile con un array vuoto
     arrayNumber = [];
 // - vado a popolare l'array con i 5 numeri casuali attraverso un ciclo while
     while (arrayNumber.length < number) {
 // - genero i numeri random attraverso la funzione getRandomIntInclusive
-        const n = getRandomIntInclusive(minRange, maxRange);
+        const n = getRandomIntInclusive(min, max);
         // console.log(n);
-// - pushare il numero nell'array
-        arrayNumber.push(n);
+        if (!arrayNumber.includes(n)) {
+            // - pushare il numero nell'array
+            arrayNumber.push(n);
+        }
     }
     return arrayNumber
 }
